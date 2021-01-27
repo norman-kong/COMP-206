@@ -1,0 +1,3 @@
+Copyright : Norman Kong, 2020 - All Rights Reserved 
+Email : norman.kong@mail.mcgill.ca
+Dept : Department of Electrical, Computer and Software Engineering

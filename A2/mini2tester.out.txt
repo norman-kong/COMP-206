@@ -1,0 +1,109 @@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  backup.sh tests @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+[[[[ FAIL - incorrect usage ]]]]
+********************************************************************************
+$ ./backup.sh /tmp/__tmp_comp206_csuser/backups
+Error: Expected two input parameters.
+Usage: ./backup.sh <backupdirectory> <fileordirtobackup>
+exit code: 1
+********************************************************************************
+
+[[[[ FAIL - backup directory does not exist]]]]
+********************************************************************************
+$ ./backup.sh /not_a_directory /tmp/__tmp_comp206_csuser/test_files/
+Error: Backup directory '/not_a_directory' does not exist.
+Usage: ./backup.sh <backupdirectory> <fileordirtobackup>
+exit code: 2
+********************************************************************************
+
+[[[[ WORKS - directory (absolute path) ]]]]
+********************************************************************************
+$ ./backup.sh /tmp/__tmp_comp206_csuser/backups /tmp/__tmp_comp206_csuser/test_files/
+exit code: 0
+BEGIN ARCHIVE <<<
+tmp/__tmp_comp206_csuser/test_files/
+tmp/__tmp_comp206_csuser/test_files/file_3.conf
+#Another configuration file
+tmp/__tmp_comp206_csuser/test_files/file_2.conf
+#Example configuration file
+var=value
+tmp/__tmp_comp206_csuser/test_files/file_1.txt
+This is my first text file!
+>>> END ARCHIVE
+********************************************************************************
+
+[[[[ WORKS - file (relative path) ]]]]
+********************************************************************************
+$ ./backup.sh /tmp/__tmp_comp206_csuser/backups test_files/file_3.conf
+exit code: 0
+BEGIN ARCHIVE <<<
+test_files/file_3.conf
+#Another configuration file
+>>> END ARCHIVE
+********************************************************************************
+
+[[[[ WORKS - overwrite (n) ]]]]
+********************************************************************************
+$ echo n | ./backup.sh /tmp/__tmp_comp206_csuser/backups test_files/file_3.conf
+Back up file '/tmp/__tmp_comp206_csuser/backups/file_3.20200925.tar' already exists. Overwrite? (y/n) Error: File already exists. Not overwriting.
+exit code: 3
+BEGIN ARCHIVE <<<
+test_files/file_3.conf
+#Another configuration file
+>>> END ARCHIVE
+********************************************************************************
+
+[[[[ WORKS - overwrite (y) ]]]]
+********************************************************************************
+$ echo y | ./backup.sh /tmp/__tmp_comp206_csuser/backups test_files/file_3.conf
+Back up file '/tmp/__tmp_comp206_csuser/backups/file_3.20200925.tar' already exists. Overwrite? (y/n) 
+exit code: 0
+BEGIN ARCHIVE <<<
+test_files/file_3.conf
+Testing overwriting the file...
+>>> END ARCHIVE
+********************************************************************************
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  srcdiff.sh tests @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+[[[[ FAIL - incorrect usage ]]]]
+********************************************************************************
+$ ./srcdiff.sh
+Error: Expected two input parameters.
+Usage: ./srcdiff.sh <originaldirectory> <comparisondirectory>
+exit code: 1
+********************************************************************************
+
+[[[[ FAIL - input parameter #1 is a file instead of a directory ]]]]
+********************************************************************************
+$ ./srcdiff.sh /tmp/__tmp_comp206_csuser/test_files/ /tmp/__tmp_comp206_csuser/copy_dir/file_1.txt
+Error: Input parameter #2 '/tmp/__tmp_comp206_csuser/copy_dir/file_1.txt' is not a directory.
+Usage: ./srcdiff.sh <originaldirectory> <comparisondirectory>
+exit code: 2
+********************************************************************************
+
+[[[[ WORKS - original directory vs identical copy ]]]]
+********************************************************************************
+$ ./srcdiff.sh /tmp/__tmp_comp206_csuser/test_files/ /tmp/__tmp_comp206_csuser/copy_dir
+exit code: 0
+********************************************************************************
+
+[[[[ WORKS - original directory vs different directory ]]]]
+********************************************************************************
+$ ./srcdiff.sh /tmp/__tmp_comp206_csuser/test_files/ /tmp/__tmp_comp206_csuser/diff_dir
+/tmp/__tmp_comp206_csuser/diff_dir/file_1.txt is missing
+/tmp/__tmp_comp206_csuser/test_files/file_3.conf differs.
+/tmp/__tmp_comp206_csuser/test_files/file_4.sh is missing
+exit code: 3
+********************************************************************************
+
+[[[[ WORKS - empty directory vs different directory ]]]]
+********************************************************************************
+$ ./srcdiff.sh /tmp/__tmp_comp206_csuser/empty_dir /tmp/__tmp_comp206_csuser/diff_dir
+/tmp/__tmp_comp206_csuser/empty_dir/file_2.conf is missing
+/tmp/__tmp_comp206_csuser/empty_dir/file_3.conf is missing
+/tmp/__tmp_comp206_csuser/empty_dir/file_4.sh is missing
+exit code: 3
+********************************************************************************
+

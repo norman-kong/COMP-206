@@ -1,0 +1,102 @@
+Web metrics for log file weblog1.txt
+====================
+Number of requests per web browser
+Safari,171882
+Firefox,48558
+Chrome,148691
+
+Number of distinct users per day
+22/Jan/2019,3987
+26/Jan/2019,5567
+
+Top 20 popular product requests
+34286,25
+33954,18
+33952,17
+33956,16
+33953,16
+33670,15
+11911,15
+11947,12
+33487,11
+8658,11
+34290,10
+31828,10
+8369,10
+5681,10
+33968,9
+33712,9
+33626,9
+13027,9
+11926,9
+33722,8
+
+
+Web metrics for log file weblog2.txt
+====================
+Number of requests per web browser
+Safari,179875
+Firefox,62887
+Chrome,159935
+
+Number of distinct users per day
+22/Jan/2019,3038
+26/Jan/2019,5567
+
+Top 20 popular product requests
+33960,17
+33953,17
+34286,16
+33956,16
+33954,16
+33952,14
+31720,12
+34290,11
+33626,9
+33968,8
+33670,8
+32268,8
+27456,8
+247,8
+32087,7
+26532,7
+26528,7
+21871,7
+17709,7
+8658,7
+
+
+Web metrics for log file weblog3.txt
+====================
+Number of requests per web browser
+Safari,214781
+Firefox,51875
+Chrome,184071
+
+Number of distinct users per day
+22/Jan/2019,5462
+23/Jan/2019,5706
+
+Top 20 popular product requests
+34286,21
+33968,16
+31720,15
+33953,14
+32768,14
+33722,13
+33956,12
+33954,11
+33896,11
+33487,11
+30797,11
+33952,10
+32599,10
+29351,10
+28488,10
+26647,10
+32174,9
+8492,9
+33598,8
+27703,8
+
+

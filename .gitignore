@@ -1,0 +1,7 @@
+# do not include PDFs and final exam submission as requested by prof. D'Silva
+
+*.pdf
+/labs/*
+/slides/*
+/final_exam/*
+ 
