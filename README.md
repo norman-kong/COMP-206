@@ -1,5 +1,7 @@
 # COMP 206
 
+This repository contains my assignments and labs for the course COMP 206 (Introduction to Software Systems) at McGill University (F2020). PDFs for the assignments, my final exam submission and the labs are not posted as requested by the professor. 
+
 ### A1: Familiarization of Linux. 
 - 1. Recreate a given folder structure and demonstrate bash commands.
 - 2. Editing files with vi.
@@ -23,8 +25,6 @@
  
 ### A6: C Programming & Dynamic Memory
 - 1. A C program (`wcloud`) that reads through all text files passed in as its argument and generates a counter of all words in all files, in alphabetical order. 
-
-This repository contains my assignments and labs for the course COMP 206 (Introduction to Software Systems) at McGill University (F2020). PDFs for the assignments, my final exam submission and the labs are not posted as requested by the professor. 
 
 Notes for myself: 
 - labF: almost done, small thing at end doesn’t work
